@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_inventory_app/screens/item_list_screen.dart';
-
+import 'package:home_inventory_app/screens/location_summary_screen.dart';
 
 void main() {
   runApp(const InventoryApp());
@@ -13,7 +13,11 @@ class InventoryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const ItemListScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const ItemListScreen(),
+        '/locations': (context) => const LocationSummaryScreen(),
+      },
     );
   }
 }

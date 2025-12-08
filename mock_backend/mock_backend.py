@@ -26,6 +26,19 @@ def add_item():
     }
     items.append(new_item)
     return jsonify(new_item), 201
+@app.route("/items/<item_id>", methods=["DELETE"])
+def delete_item(item_id):
+    global items
+    # Find item
+    item_to_delete = next((i for i in items if i["id"] == item_id), None)
+
+    if not item_to_delete:
+        return jsonify({"error": "Item not found"}), 404
+
+    items = [i for i in items if i["id"] != item_id]
+
+    return jsonify({"message": "Item deleted"}), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

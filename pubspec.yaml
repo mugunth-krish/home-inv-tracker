@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   http: ^1.1.0
   image_picker: ^0.8.7+4
+  fl_chart: ^0.65.0
 
   # State management (optional, can use setState as well)
   provider: ^6.0.5
